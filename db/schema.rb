@@ -35,19 +35,23 @@ ActiveRecord::Schema.define(version: 20160528195755) do
   end
 
   create_table "mentee_courses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "mentee_id"
+    t.integer  "course_id"
     t.integer  "comfort_level"
     t.text     "remarks",       limit: 65535
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["course_id"], name: "index_mentee_courses_on_course_id", using: :btree
+    t.index ["mentee_id"], name: "index_mentee_courses_on_mentee_id", using: :btree
   end
 
   create_table "mentee_help_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "mentees_id"
-    t.integer  "help_categories_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["help_categories_id"], name: "index_mentee_help_categories_on_help_categories_id", using: :btree
-    t.index ["mentees_id"], name: "index_mentee_help_categories_on_mentees_id", using: :btree
+    t.integer  "mentee_id"
+    t.integer  "help_category_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["help_category_id"], name: "index_mentee_help_categories_on_help_category_id", using: :btree
+    t.index ["mentee_id"], name: "index_mentee_help_categories_on_mentee_id", using: :btree
   end
 
   create_table "mentees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -59,19 +63,23 @@ ActiveRecord::Schema.define(version: 20160528195755) do
   end
 
   create_table "mentor_courses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "mentor_id"
+    t.integer  "course_id"
     t.integer  "comfort_level"
     t.text     "remarks",       limit: 65535
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["course_id"], name: "index_mentor_courses_on_course_id", using: :btree
+    t.index ["mentor_id"], name: "index_mentor_courses_on_mentor_id", using: :btree
   end
 
   create_table "mentor_help_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "mentors_id"
-    t.integer  "help_categories_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["help_categories_id"], name: "index_mentor_help_categories_on_help_categories_id", using: :btree
-    t.index ["mentors_id"], name: "index_mentor_help_categories_on_mentors_id", using: :btree
+    t.integer  "mentor_id"
+    t.integer  "help_category_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["help_category_id"], name: "index_mentor_help_categories_on_help_category_id", using: :btree
+    t.index ["mentor_id"], name: "index_mentor_help_categories_on_mentor_id", using: :btree
   end
 
   create_table "mentors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

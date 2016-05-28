@@ -24,12 +24,16 @@ class InitialSchema < ActiveRecord::Migration[5.0]
     end
 
     create_table :mentor_courses do |t|
+      t.references :mentor
+      t.references :course
       t.integer :comfort_level
       t.text :remarks
       t.timestamps
     end
 
     create_table :mentee_courses do |t|
+      t.references :mentee
+      t.references :course
       t.integer :comfort_level
       t.text :remarks
       t.timestamps
@@ -42,14 +46,14 @@ class InitialSchema < ActiveRecord::Migration[5.0]
     end
 
     create_table :mentor_help_categories do |t|
-      t.references :mentors
-      t.references :help_categories
+      t.references :mentor
+      t.references :help_category
       t.timestamps
     end
 
     create_table :mentee_help_categories do |t|
-      t.references :mentees
-      t.references :help_categories
+      t.references :mentee
+      t.references :help_category
       t.timestamps
     end
 
