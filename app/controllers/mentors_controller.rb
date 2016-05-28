@@ -1,6 +1,6 @@
-class MentorController < ApplicationController
+class MentorsController < ApplicationController
   def index
-    render json:
+    render json: Mentor.all
   end
 
   def show
