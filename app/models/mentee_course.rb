@@ -1,0 +1,3 @@
+class MenteeCourse < ApplicationRecord
+
+end

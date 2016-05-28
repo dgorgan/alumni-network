@@ -1,0 +1,3 @@
+class MentorCourse < ApplicationRecord
+
+end

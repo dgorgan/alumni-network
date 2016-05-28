@@ -1,0 +1,3 @@
+class HelpCategory < ApplicationRecord
+
+end
