@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
-  belongs to :mentor_course
+  belongs_to :mentor_course
 
-  has many :mentees
-  has many :mentors
+  has_many :mentees
+  has_many :mentors
 end
